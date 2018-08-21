@@ -23,17 +23,21 @@ require('db.php');
         $saveEditAdminName,$saveEditAdminRole,$saveEditAdminPhone
         ,$saveEditAdminEmail, $saveEditAdminImg,$saveEditAdminId);
 
+         header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?administration&page=administration&adminPersonalInfoCard&adminId=".$saveEditAdminId);
+   exit();
+
+
     } else{ 
 
         if(isset($_GET['deleteAdmin'])) {
             $db = new UsersDB();
             $resultAdminDelete = $db->deleteAdminQuery( $saveEditAdminId);
         }
-} 
- header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index22.php?administration&adminPersonalInfoCard&adminId=".$saveEditAdminId);
+ 
+ header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?administration&page=administration");
    exit();
+
+}
+
 ?>
-
-
-
 

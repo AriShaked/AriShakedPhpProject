@@ -62,16 +62,17 @@
 </style>
 <?php
     $infoAdminId = $_GET['adminId'];
-    $db = new UsersDB();
     $resultAdminsQuery = $db->adminQuery($infoAdminId);
     while($row=$resultAdminsQuery->fetch_assoc()){
 ?>
 <div class="titleadminPersonalInfo"><h1>Administrator personal information</h1>
 <div class='adminPersonalInfoDiv'>
-    <form method='GET' action='index22.php'>
+    <form method='GET' action='index.php'>
 
         <input type='hidden' name="EditAdminPersonalInfoCard" value='EditAdminPersonalInfoCard'  /> 
         <input type='hidden' name="administration" value='EditAdminPersonalInfoCard'  /> 
+        <input type='hidden' name="page" value='administration'>
+        
             
             <br><div class='nameAndRole'><?php echo   $row['adminfullname']  ?>, <?php echo $row['role'] ?></div>
             <br>Id: <?php echo   $infoAdminId        ?>

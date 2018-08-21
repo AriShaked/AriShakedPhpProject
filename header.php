@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    
+
     .headerMain {
         width:100%;
         position:fixed;
@@ -14,7 +14,7 @@
         left:0%;
         border-bottom:2px solid black;
         height:10%;
-        
+
     }
 
     .school{
@@ -26,6 +26,7 @@
         position:fixed;
         top:3%;
         left:21%;
+
     }
     .administration{
         color:black;
@@ -38,30 +39,31 @@
         position:fixed;
         top:3%;
         left:26%;
-        
+
+
     }
 
     a{
         color:black;
         text-decoration: none;
     }
-    
+
     .logoutDiv{
         border-bottom: 1px solid black;
-        
+
         position:fixed;
         right:7%;
         top:6%;
         display:inline-block;
-        
+
     }
-    
+
     .userDetails{
 
         position:fixed;
         top:2.5%;
         right:7%
-        
+
     }
     .logo{
         position:fixed;
@@ -77,7 +79,7 @@
         height:6%;
         right:1%;
         top:3%;
-        
+
     }
     </style>
 </head>
@@ -86,26 +88,43 @@
     <div class="headerMain">
 <?php
 
-    if ($role == 'manager' || $role == 'owner'){
-        echo "<div class='administration'><a href='index22.php?administration'>Administration</a></div>";
-        echo "<div class='school'><a href='index22.php?school'>School</a></div>";
-        
-    }elseif($role == 'sales') {
+if ($role == 'manager' || $role == 'owner') {
+    echo "<div class='administration'><a href='index.php?administration&page=administration'>Administration</a></div>";
+    echo "<div class='school'><a href='index.php?school'>School</a></div>";
 
-        echo "<div class='school' name='school' value='school'>School</div>";
-    }else{
-        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login22.php?error=please insert correct username and password(role is missing in DB)");
-        die();
-        }
+} elseif ($role == 'sales') {
 
-    echo "<div class='userDetails'>". $validUserName.",  ".$role."</div>";
+    echo "<div class='school' name='school' value='school'>School</div>";
+} else {
+    header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password(role is missing in DB)");
+    die();
+}
 
+echo "<div class='userDetails'>" . $validUserName . ",  " . $role . "</div>";
+
+if (isset($_GET['page'])) {
+
+    ?>
+    <link rel="stylesheet" type="text/css" href="bold.css">
+<?php
+} else {
+    ?>
+    <link rel="stylesheet" type="text/css" href="schoolBold.css">
+<?php
+
+}
+if ('page' == 'administration') {
+    "<div class='administration' style='color:blue;'>";
+
+} else {
+    "<div class='school' style='color:blue;'>";
+}
 ?>
 
     </div>
     <div class='logoutDiv'>
         <a href="logout.php?action=logout">Logout</a>
-        <img src="<?php echo 'uploads' . '/' .'adminsImages' . '/' . $adminheaderImage; ?> "class='adminHeadrImage'/>
+        <img src="<?php echo 'uploads' . '/' . 'adminsImages' . '/' . $adminheaderImage; ?> "class='adminHeadrImage'/>
     </div>
   </body>
 </html>

@@ -12,7 +12,7 @@
             left:0.5%;
             overflow-x: hidden;
             padding-left:1%;
-           
+
 
     }
 
@@ -22,7 +22,7 @@
             position:absolute;
             top: 27px;
             left:80%;
-        
+
     }
 
     .adminsList {
@@ -63,59 +63,55 @@
 
 </style>
 
-<div class="titleAdminsList" > <h1>Administrators</h1> 
-    <form  method='GET' action='index22.php'>
+<div class="titleAdminsList" > <h1>Administrators</h1>
+    <form  method='GET' action='index.php'>
         <button class="addNewAdminButton" name='addNewAdmin' >+ </button>
-        <input type='hidden' name="newAdmin" value='addNewAdminForm'  /> 
-        <input type='hidden' name="administration" value='addNewAdminForm'  /> 
+        <input type='hidden' name="newAdmin" value='addNewAdminForm'  />
+        <input type='hidden' name="administration" value='addNewAdminForm'  />
+        <input type='hidden' name="page" value='administration'>
     </form>
     <div class="adminsList">
     <?php
-        require_once('db.php');
-        $db = new UsersDB();
-        $resultAdminsListQuery = $db->adminsListQuery();
-        $admins_cnt = $resultAdminsListQuery->num_rows;
 
-        foreach( $resultAdminsListQuery as $rowIsAdmin){
+
+$resultAdminsListQuery = $db->adminsListQuery();
+$admins_cnt = $resultAdminsListQuery->num_rows;
+
+foreach ($resultAdminsListQuery as $rowIsAdmin) {
     ?>
-            <form method='GET' action='index22.php'>
-            <input type='hidden' name='administration' value='addNewAdminForm'  /> 
-            <input type='hidden' name="adminPersonalInfoCard" value='adminPersonalInfoCard'  /> 
+            <form method='GET' action='index.php'>
+            <input type='hidden' name='administration' value='addNewAdminForm'  />
+            <input type='hidden' name="adminPersonalInfoCard" value='adminPersonalInfoCard'  />
             <input type='hidden' name="adminId"       value='<?php echo $rowIsAdmin['adminid'] ?>'>
-            <input type='hidden' name="adminName"     value='<?php echo $rowIsAdmin['adminfullname']?>'>
-            <input type='hidden' name="adminPhone"    value='<?php echo $rowIsAdmin['phone'] ?>'>
-            <input type='hidden' name="adminEmail"    value='<?php echo $rowIsAdmin['email'] ?>'>
-            <input type='hidden' name="adminPassword" value='<?php echo $rowIsAdmin['password'] ?>'>
-            <input type='hidden' name="adminImg"      value='<?php echo $rowIsAdmin['adminimg'] ?>'>
-            <input type='hidden' name="adminRole"     value='<?php echo $rowIsAdmin['role'] ?>'>
+            <input type='hidden' name="page" value='administration'>
     <?php
-    if ($role  == 'owner' ){
-        
+if ($role == 'owner') {
+
         echo "<button class='admin' >";
         ?>
-        <img src="<?php echo 'uploads' . '/' .'adminsImages' . '/' . $rowIsAdmin['adminimg']; ?>" class="smallButtonImg" height="30" width="30"/>
+        <img src="<?php echo 'uploads' . '/' . 'adminsImages' . '/' . $rowIsAdmin['adminimg']; ?>" class="smallButtonImg" height="30" width="30"/>
         <?php
-        echo "<h3>".$rowIsAdmin['adminfullname'].", ".$rowIsAdmin['role'].
-        "</h3><h5>".$rowIsAdmin['phone']."<br/>".$rowIsAdmin['email'].
-        "</h5></button><br>";
+echo "<h3>" . $rowIsAdmin['adminfullname'] . ", " . $rowIsAdmin['role'] .
+            "</h3><h5>" . $rowIsAdmin['phone'] . "<br/>" . $rowIsAdmin['email'] .
+            "</h5></button><br>";
 
-    }else{
+    } else {
 
         if ($rowIsAdmin['role'] == 'owner') {
             //don't print
-        }else{
-            
+        } else {
+
             echo "<button class='admin' >";
             ?>
-            <img src="<?php echo 'uploads' . '/' .'adminsImages' . '/' . $rowIsAdmin['adminimg']; ?>"class='smallButtonImg' height="30" width="30"/>
+            <img src="<?php echo 'uploads' . '/' . 'adminsImages' . '/' . $rowIsAdmin['adminimg']; ?>"class='smallButtonImg' height="30" width="30"/>
             <?php
-           echo "<h3>".$rowIsAdmin['adminfullname'].", ".$rowIsAdmin['role'].
-            "</h3><h5>".$rowIsAdmin['phone']."<br/>".$rowIsAdmin['email'].
-            "</h5></button><br>";       
-    }   
-  } 
-  echo " </form>";
+echo "<h3>" . $rowIsAdmin['adminfullname'] . ", " . $rowIsAdmin['role'] .
+                "</h3><h5>" . $rowIsAdmin['phone'] . "<br/>" . $rowIsAdmin['email'] .
+                "</h5></button><br>";
+        }
+    }
+    echo " </form>";
 }
 ?>
-    </div>  
+    </div>
 </div>

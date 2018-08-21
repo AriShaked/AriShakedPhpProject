@@ -122,9 +122,10 @@
 <body>
 <div class= "coursesTitle">
         <h1>Courses</h1>
-        <form  method='get' action='index22.php'>
+        <form  method='get' action='index.php'>
             <button class="addCourseButton" name='addNewCourse'>+ </button>
             <input type='hidden' name="role" value=" <?php echo $role ?>"  />
+            
         </form>
     <div class= "courses">
     <?php
@@ -133,12 +134,9 @@
         $courses_cnt = $result->num_rows;
         foreach($result as $row){
     ?>
-            <form method='GET' action='index22.php'>
+            <form method='GET' action='index.php'>
                 <button>
                     <input type='hidden' name="courseInfoId" value='<?php echo $row['courseid'] ?>'>
-                    <input type='hidden' name="courseInfoName" value='<?php echo $row['name']?>'>
-                    <input type='hidden' name="courseInfoDescription" value='<?php echo $row['description'] ?>'>
-                    <input type='hidden' name="courseInfoImg" value='<?php echo $row['courseimg'] ?>'>
                      <img src="<?php echo 'uploads' . '/' .'coursesImages' . '/' . $row['courseimg']; ?>" class="smallButtonCoursetImg" height="30" width="30"/>
                     <h3><?php echo $row['name']?> </h3> <br/>  
                 </button><br/>

@@ -129,7 +129,7 @@ function checkDelete(){
         
 <?php
     $studentId = $_GET['studentId'];
-    $db = new UsersDB();
+    
     $coursesResult = $db->coursesListQuery();
     $resultStudentQuery = $db->studentQuery($studentId);
     $resultStudentCoursesQuery = $db->studentCoursesQuery($studentId);
@@ -148,6 +148,7 @@ function checkDelete(){
                            <input type='hidden' name='editId'    value='<?php echo $row['id']?>' >
                 Edit Image <input type='file' name='editStudentImg' value='' /><br><br>
                            <input type='hidden' name='editedStudentImg' value='<?php echo $row['img']?>' /><br><br>
+                           
                 <button class='saveButton' name='save' value='save' type='submit'>Save</button>
                 <button class='deleteButton'  name='delete' value='delete' type='submit' onclick="return checkDelete()">Delete</button>
             </div>    

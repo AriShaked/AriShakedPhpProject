@@ -99,6 +99,7 @@ while($row=$resultAdminsQuery->fetch_assoc()){
 
     <input type='hidden' name="saveEditAdminInfo" value='saveEditAdminInfo'  /> 
     <input type='hidden' name="administration" value='administration'  /> 
+    <input type='hidden' name="page" value='administration'>
             
           Id     <input type='text'      name="saveAdminId"       value='<?php echo   $editAdminId        ?>' ><br><br>
           Name  <input type='text'       name="saveAdminName"     value='<?php echo  $row['adminfullname'] ?>'><br><br>

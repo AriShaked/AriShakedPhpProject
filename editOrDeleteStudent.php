@@ -15,17 +15,14 @@ if (isset($_GET['save'])){
         }
       $assignedCoursesChanges = $_GET['courseListEdit'];
 
-      echo $editFullName;
-      echo $editId;
-      echo $editPhone;
-      echo $editEmail;
-      echo $editImg;
-      print_r($assignedCoursesChanges);
 
       $db = new UsersDB();
       $resultEditStudentQuery = $db->updateEditStudentQuery($editFullName, $editPhone, $editEmail, $editImg, $editId);
       $resultDeleteFromCourse = $db->deleteStudentFromCourseQuery($editId);
       $resultAssignedCoursesChangesQuery = $db->assignedCoursesChangesQuery($assignedCoursesChanges, $editId);
+
+      header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?studentInfoId=".$editId);
+   exit();
 
 } else {
   
@@ -34,10 +31,10 @@ if (isset($_GET['save'])){
     $resultDeleteFromCourse = $db->deleteStudentFromCourseQuery($editId);
     $resultStudentDelete = $db->deleteStudentQuery( $editId);
  
-}
- header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index22.php?studentInfoId=".$editId);
-   exit();
 
+ header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php");
+   exit();
+}
 ?>
 
 

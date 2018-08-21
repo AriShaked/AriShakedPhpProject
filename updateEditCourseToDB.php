@@ -14,15 +14,18 @@ require_once('db.php');
     if (isset($_GET['editCourseSaveButton'])){
         $db = new UsersDB();
         $resultEditCourseQuery = $db->updateEditCourseQuery($saveEditCourseName ,$saveEditCourseDescription, $saveEditCourseImg, $saveCourseId );
+    
+        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?courseInfoId=".$saveCourseId);
+        exit();  
+    
     }else{ 
 
         if(isset($_GET['editCourseDeleteButton'])) {
             $db = new UsersDB();
             $resultCourseDelete = $db->deleteCourseQuery( $saveCourseId);
         }
-    }
-
- header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index22.php?courseInfoId=".$saveCourseId);
-   exit();
-
+    
+    header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php");
+    exit();
+}
 ?>

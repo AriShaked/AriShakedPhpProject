@@ -36,7 +36,7 @@
             border:1px solid black;
             height:6.5%;
             text-align:left;
-            
+
         }
 
         .selectRole {
@@ -70,19 +70,19 @@
             box-shadow: 0 3px #999;
             width:50%;
             text-align:center;
-            
+
         }
 
 </style>
 
 <div class='titleAddNewAdminForm' ><h1>Add new Administrator form </h1>
 <?php
-    if (isset($_GET['errorOwner'])) {
-            ?>
-                <h1 style="color:red"><?= $_GET['errorOwner'] ?></h1>
+if (isset($_GET['errorOwner'])) {
+    ?>
+                <h1 style="color:red"><?=$_GET['errorOwner']?></h1>
             <?php
-        }
-        ?>
+}
+?>
     <div class='AddNewAdminDiv' >
         <form  name='AddNewAdminForm' method='GET' action='addNewAdminToDB.php'>
             <button class='addNewAdminSaveButton' >Save</button>
@@ -91,21 +91,22 @@
             Phone <input type='tel'   name='newAdminPhone'  pattern='[0-9\-]+' placeholder='000-0000000' required/><br/><br/>
             Email <input type='email'   name='newAdminEmail' placeholder='example@example.com' required/><br/><br/>
             Password <input type='text'name='newAdminPassword' required/><br/><br/>
-            
+                    <input type='hidden' name="page" value='administration'>
+
                 <div class='selectRole'>
                 Role <select name="newAdminRole" required>
-                        <option value="" disabled selected>None</option>    
+                        <option value="" disabled selected>None</option>
                         <option value="sales">Sales</option>
                         <option value="manager">Manager</option>
-                            <?php if ($role == 'owner'){
-                                echo "<option value='owner'>Owner</option>";
-                                    }
-                                ?>
+                            <?php if ($role == 'owner') {
+    echo "<option value='owner'>Owner</option>";
+}
+?>
                     </select><br/>
                 </div><br/>
-                <br><div class='imgUpload'><?php  require("upload.php"); ?></div><br/><br/>
+                <br><div class='imgUpload'><?php require "upload.php";?></div><br/><br/>
          </form>
-         
+
      </div>
 </div>
 

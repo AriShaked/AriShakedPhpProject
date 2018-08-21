@@ -88,7 +88,7 @@
     }  
        echo      "</div><br/>courses:</div>";
         
-         echo "<form method='GET' action='index22.php' > 
+         echo "<form method='GET' action='index.php' > 
          <button class='editStudentButton' name='editStudentButtoninfoClicked' type='submit'>edit</button>
          <input type='hidden' name='studentId' value='$studentId'>";
          echo "<div class='printStudentCourseList'>";

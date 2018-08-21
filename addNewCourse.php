@@ -39,7 +39,7 @@
           border: 1px solid black;
       }
       textarea{
-        vertical-align:top;  
+        vertical-align:top;
         border: 1px solid black;
         width:45%;
         height:200px;
@@ -60,7 +60,7 @@
             top:23%;
             right:100px;
             width:90px;
-            height:45px; 
+            height:45px;
       }
     </style>
 </head>
@@ -70,10 +70,11 @@
     <div class="addNewCourseFormDiv">
         <form class="addNewCourseForm" method="GET" action="insertNewCourseToDB.php"><br>
              Name <input type="text" name="newCourseName" value="" required><br>
-             <br/>Description <textarea name='newCourseDescription' value="" required></textarea><br>     
+             <br/>Description <textarea name='newCourseDescription' value="" required></textarea><br>
              <br><br>
              image  <input type="file" name="newCourseImg" value="" ><br><br>
              <button type=\"submit\" class="addNewCourseSaveButton">Save</button>
+            
         </form>
    </div>
 </body>

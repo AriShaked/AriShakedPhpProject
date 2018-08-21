@@ -6,6 +6,6 @@
         setcookie('PHPSESSID', '', time() - 3600, '/'); // empty value and old timestamp
     }
     session_destroy();
-    header("Location: login22.php");
+    header("Location: login.php");
     die();
 ?>

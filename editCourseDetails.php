@@ -108,7 +108,7 @@ function checkDelete(){
               <textarea class='CourseDescriptionBox' name='editCourseDescription'> <?php echo $row['description'] ?>  </textarea><br/><br/>
              Edit Image <input type="file" name="editCourseImg" value="" /><br><br>
                         <input type="hidden" name="editedCourseImg" value="<?php echo $row['courseimg'] ?>" />
-             
+                      
              <img src="<?php echo 'uploads' . '/' .'coursesImages' . '/' . $row['courseimg']; ?> "class='infoCardCourseStudentsImage' height="100" width="100"/>
 <?php
     }

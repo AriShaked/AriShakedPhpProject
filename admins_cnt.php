@@ -19,12 +19,12 @@
     span {
         font-size: 1000%;
     }
-   
+
    </style>
 </head>
 <body>
-    
-<div class='adminsCount' > <h1>Administrators:  </h1><span><?php echo  $admins_cnt ?> </span><br>*including owner</div>
+
+<div class='adminsCount' > <h1>Administrators:  </h1><span><?php echo $admins_cnt ?> </span><br>*including owner</div>
 
 </body>
 </html>

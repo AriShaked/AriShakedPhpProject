@@ -121,13 +121,13 @@
         
       if(isset($_GET['newCourseName'])){
         $courseName= $_GET['newCourseName']; 
-        $db = new UsersDB();
+       
         $courseInformation=$db->courseQueryByName($courseName);
         $resultCourseStudentsQuery = $db->courseStudentsQueryByName($courseName);
         $students_cnt = $resultCourseStudentsQuery->num_rows;
       }else{
         $courseId=  $_GET['courseInfoId']; 
-        $db = new UsersDB();
+        
         $courseInformation=$db->courseQuery($courseId );
         $resultCourseStudentsQuery = $db->courseStudentsQuery($courseId);
         $students_cnt = $resultCourseStudentsQuery->num_rows;
@@ -136,11 +136,12 @@
 
         echo "<div class='titlecourseInfoCard'>Course information</div>";
         echo "<div class='courseInfoPage'>
-        <form class='courseInfoPageForm' method='GET' action='index22.php' >";
+        <form class='courseInfoPageForm' method='GET' action='index.php' >";
         foreach($courseInformation as $row) {
 ?>
         <div class='courseInformationImg' >
         <img src="<?php echo 'uploads' . '/' .'coursesImages' . '/' . $row['courseimg']; ?>"class='courseImage' height="200" width="200"/>
+        
         </div>
 <?php
 

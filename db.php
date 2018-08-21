@@ -21,7 +21,7 @@
             function adminLoginQuery($user) {
                 $result = $this->conn->query("SELECT * 
                 FROM admins
-                WHERE  adminfullname = '$user'");
+                WHERE  email = '$user'");
                 $count = $result->num_rows;
                 $users = array();
                 return $result;
@@ -183,7 +183,9 @@
                         `adminfullname`='$saveEditAdminName',`role`='$saveEditAdminRole',`phone`='$saveEditAdminPhone',
                         `email`='$saveEditAdminEmail',`adminimg`='$saveEditAdminImg' 
                         WHERE `adminid` =  '$saveEditAdminId' ");  
-                            }    
+                            }  
+                            
+                            
                  
             function deleteStudentFromCourseQuery($editId) {
                  $result = $this->conn->query("DELETE FROM `studentcourses` WHERE `id` = '$editId'");  
