@@ -16,7 +16,7 @@ if (isset($_SESSION['loggedInUser'])) {
 
     if (empty($_POST['username']) || empty($_POST['password'])) {
 
-        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password(3)");
+        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password");
         die();
     }
     $user = $_POST['username'];
@@ -35,7 +35,7 @@ if (isset($_SESSION['loggedInUser'])) {
 
     if ($verify == false) {
 
-        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password(2)");
+        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password");
         die();
     }
 }

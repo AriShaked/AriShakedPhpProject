@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
     <style>
@@ -35,48 +36,47 @@
 <body>
     <div class= "mainContainer">
 <?php
+if (isset($_GET['action'])) {
+    $schoolAction = $_GET['action'];
 
-if (isset($_GET['addNewStudent'])) {
+    if ($schoolAction == 'addNewStudent') {
 
-    include 'addStudentForm.php';
+        include 'addStudentForm.php';
 
-} elseif (isset($_GET['addNewCourse'])) {
+    } elseif ($schoolAction == 'addNewCourse') {
 
-    if ($role == 'sales') {
-        echo "sorry, " . $role . " is not authorized ";
-        echo "<br/><br/><br/><br/><h1>courses count: " . $courses_cnt . "</h1><br/><br/>";
-        echo "<h1>students count: " . $students_cnt . "</h1><br/><br/>";
+        if ($role == 'sales') {
+            echo "sorry, " . $role . " is not authorized ";
+            echo "<br/><br/><br/><br/><h1>courses count: " . $courses_cnt . "</h1><br/><br/>";
+            echo "<h1>students count: " . $students_cnt . "</h1><br/><br/>";
 
-    } else {
+        } else {
 
-        include 'addNewCourse.php';
+            include 'addNewCourse.php';
 
+        }
+
+    } else if ($schoolAction == 'studentInformation') {//
+
+        include 'studentPersonalCard.php';
+
+    } elseif ($schoolAction == 'courseInformation') {//
+
+        include 'courseInfoCard.php';
+
+
+    } elseif ($schoolAction == 'editCourseInformation') {//
+
+        include 'editCourseDetails.php';
+
+    } elseif ($schoolAction == 'editStudentDetails') {//
+
+        include 'editStudentDetails.php';
     }
-
-} else if (isset($_GET['studentInfoId'])) {
-
-    include 'studentPersonalCard.php';
-
-} elseif (isset($_GET['courseInfoId'])) {
-
-    include 'courseInfoCard.php';
-
-} elseif (isset($_GET['newCourseName'])) {
-
-    include 'courseInfoCard.php';
-
-} elseif (isset($_GET['editCourseButtoninfoClicked'])) {
-
-    include 'editCourseDetails.php';
-
-} elseif (isset($_GET['editStudentButtoninfoClicked'])) {
-
-    include 'editStudentDetails.php';
-
-} else {
-    echo "<br/><br/><br/><h1>courses count:</h1><span> " . $courses_cnt . "</span><br/><br/>";
-    echo "<h1>students count:</h1><span>" . $students_cnt . "</span><br/><br/>";
-}
+    } else {
+        echo "<br/><br/><br/><h1>courses count:</h1><span> " . $courses_cnt . "</span><br/><br/>";
+        echo "<h1>students count:</h1><span>" . $students_cnt . "</span><br/><br/>";
+    }
 
 ?>
 </div>

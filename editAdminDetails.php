@@ -97,15 +97,15 @@ while($row=$resultAdminsQuery->fetch_assoc()){
                  
     <form method='GET' action='updateEditAdminToDB.php'>
 
-    <input type='hidden' name="saveEditAdminInfo" value='saveEditAdminInfo'  /> 
-    <input type='hidden' name="administration" value='administration'  /> 
+    <!-- <input type='hidden' name="saveEditAdminInfo" value='saveEditAdminInfo'  />  -->
+    <!-- <input type='hidden' name="administration" value='administration'  />  -->
     <input type='hidden' name="page" value='administration'>
             
-          Id     <input type='text'      name="saveAdminId"       value='<?php echo   $editAdminId        ?>' ><br><br>
-          Name  <input type='text'       name="saveAdminName"     value='<?php echo  $row['adminfullname'] ?>'><br><br>
-          Phone  <input type='text'      name="saveAdminPhone"    value='<?php echo   $row['phone']     ?>'><br><br>
-          Email  <input type='text'      name="saveAdminEmail"    value='<?php echo   $row['email']     ?>'><br><br>
-          Password  <input type='password'   name="saveAdminPassword" value='<?php echo   $row['password']   ?>'><br><br>
+        Id     <input type='text'            name="saveAdminId"       value='<?php echo   $editAdminId        ?>' ><br><br>
+        Name  <input type='text'             name="saveAdminName"     value='<?php echo   $row['adminfullname'] ?>'><br><br>
+        Phone  <input type='text'            name="saveAdminPhone"    value='<?php echo   $row['phone']     ?>'><br><br>
+        Email  <input type='text'            name="saveAdminEmail"    value='<?php echo   $row['email']     ?>'><br><br>
+        Password  <input type='password'     name="saveAdminPassword" value='<?php echo   $row['password']   ?>'><br><br>
         
           Edit Image <input type="file" name="saveAdminImg" value="" /><br><br>
                         <input type="hidden" name="saveSameAdminImg" value="<?php echo $row['adminimg'] ?>" />

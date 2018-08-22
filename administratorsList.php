@@ -65,10 +65,12 @@
 
 <div class="titleAdminsList" > <h1>Administrators</h1>
     <form  method='GET' action='index.php'>
-        <button class="addNewAdminButton" name='addNewAdmin' >+ </button>
-        <input type='hidden' name="newAdmin" value='addNewAdminForm'  />
-        <input type='hidden' name="administration" value='addNewAdminForm'  />
         <input type='hidden' name="page" value='administration'>
+        <input type='hidden' name="action" value='addNewAdminForm'  />
+        <button class="addNewAdminButton" >+ </button>
+        
+       
+        
     </form>
     <div class="adminsList">
     <?php
@@ -80,10 +82,10 @@ $admins_cnt = $resultAdminsListQuery->num_rows;
 foreach ($resultAdminsListQuery as $rowIsAdmin) {
     ?>
             <form method='GET' action='index.php'>
-            <input type='hidden' name='administration' value='addNewAdminForm'  />
-            <input type='hidden' name="adminPersonalInfoCard" value='adminPersonalInfoCard'  />
-            <input type='hidden' name="adminId"       value='<?php echo $rowIsAdmin['adminid'] ?>'>
             <input type='hidden' name="page" value='administration'>
+            <input type='hidden' name="action" value='adminPersonalInfoCard'  />
+            <input type='hidden' name="adminId"   value='<?php echo $rowIsAdmin['adminid'] ?>'>
+            
     <?php
 if ($role == 'owner') {
 

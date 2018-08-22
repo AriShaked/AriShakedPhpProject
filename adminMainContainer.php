@@ -1,20 +1,26 @@
 <?php
- 
-if (isset($_GET['newAdmin']) || isset($_GET['errorOwner'])){
-    require('addNewAdminForm.php');
-    
+if (isset($_GET['action'])) {
+    $action = $_GET['action'];
 
-}elseif(isset($_GET['adminPersonalInfoCard'])) {
+    if ($action == 'addNewAdminForm' || isset($_GET['errorOwner'])) {
+        require 'addNewAdminForm.php';
 
-    require('adminPersonalInfo.php');
+    } elseif ($action == 'adminPersonalInfoCard') {
 
-}elseif(isset($_GET['EditAdminPersonalInfoCard'])) {
+        require 'adminPersonalInfo.php';
 
-    require('editAdminDetails.php');
-    
-}else {
+    } elseif ($action == 'EditAdminPersonalInfoCard') {
 
-    require('admins_cnt.php');
+        require 'editAdminDetails.php';
+
+    } else {
+
+        require 'admins_cnt.php';
+    }
+
+} else {
+
+    require 'admins_cnt.php';
 }
 
 ?>

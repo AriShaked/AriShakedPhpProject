@@ -1,6 +1,6 @@
 <style>
         .titlecourseInfoCard{
-                
+
             text-align:left;
             text-justify:center;
             float: left;
@@ -12,14 +12,14 @@
             padding-left:20px;
             padding-top:15px;
             box-sizing: border-box;
-            
+
         }
         .courseInfoCard {
 
             text-align:left;
             padding:4%;
-            
-            
+
+
         }
         .divcourseInfoId{
 
@@ -33,7 +33,7 @@
             font-size:300%;
             padding:4%;
         }
-      
+
         .courseStudentsDiv{
             display:inline-block;
             text-align:left;
@@ -61,12 +61,12 @@
             height:45px;
         }
         .courseInfoPage{
-           
+
 
         }
         .courseInfoPageForm{
-           
-          
+
+
 
         }
 
@@ -81,11 +81,11 @@
             margin-left:0;
             margin-right:0;
             padding-left:0;
-            padding-right:0;   
-            
+            padding-right:0;
+
         }
 
-         
+
         .divCourseInfoName{
             width:60%;
             height:250px;
@@ -114,55 +114,53 @@
             overflow: scroll;
             margin-top:10%;
             overflow-x: hidden;
-           
+
         }
 </style>
 <?php
-        
-      if(isset($_GET['newCourseName'])){
-        $courseName= $_GET['newCourseName']; 
-       
-        $courseInformation=$db->courseQueryByName($courseName);
-        $resultCourseStudentsQuery = $db->courseStudentsQueryByName($courseName);
-        $students_cnt = $resultCourseStudentsQuery->num_rows;
-      }else{
-        $courseId=  $_GET['courseInfoId']; 
-        
-        $courseInformation=$db->courseQuery($courseId );
-        $resultCourseStudentsQuery = $db->courseStudentsQuery($courseId);
-        $students_cnt = $resultCourseStudentsQuery->num_rows;
-        }
-       
 
-        echo "<div class='titlecourseInfoCard'>Course information</div>";
-        echo "<div class='courseInfoPage'>
+if (isset($_GET['newCourseName'])) {
+    $courseName = $_GET['newCourseName'];
+
+    $courseInformation = $db->courseQueryByName($courseName);
+    $resultCourseStudentsQuery = $db->courseStudentsQueryByName($courseName);
+    $students_cnt = $resultCourseStudentsQuery->num_rows;
+} else {
+    $courseId = $_GET['courseInfoId'];
+
+    $courseInformation = $db->courseQuery($courseId);
+    $resultCourseStudentsQuery = $db->courseStudentsQuery($courseId);
+    $students_cnt = $resultCourseStudentsQuery->num_rows;
+}
+
+echo "<div class='titlecourseInfoCard'>Course information</div>";
+echo "<div class='courseInfoPage'>
         <form class='courseInfoPageForm' method='GET' action='index.php' >";
-        foreach($courseInformation as $row) {
-?>
+
+foreach ($courseInformation as $row) {
+    ?>
         <div class='courseInformationImg' >
-        <img src="<?php echo 'uploads' . '/' .'coursesImages' . '/' . $row['courseimg']; ?>"class='courseImage' height="200" width="200"/>
-        
+        <img src="<?php echo 'uploads' . '/' . 'coursesImages' . '/' . $row['courseimg']; ?>"class='courseImage' height="200" width="200"/>
+
         </div>
 <?php
 
-        if ($role == 'manager' || $role == 'owner' ){
-        
-            echo "<button class='editCourseButton' name='editCourseButtoninfoClicked' type='submit'>edit</button>";
-        }
-         echo  "<input type='hidden' name='courseInformationId' value='".$row['courseid']."' >";
-     
+    if ($role == 'manager' || $role == 'owner') {
 
-        echo "<div class='divCourseInfoName'> ".$row['name']." Course, $students_cnt students";
-        echo "<div class='divCourseInfoDescription'>". $row['description']."</div></div>";
-
+        echo "<button class='editCourseButton' name='action' value='editCourseInformation' type='submit'>edit</button>";
     }
-        echo "<div class='printCourseStudentsList'>";
+    echo "<input type='hidden' name='courseInformationId' value='" . $row['courseid'] . "' >";
+    echo "<div class='divCourseInfoName'> " . $row['name'] . " Course, $students_cnt students";
+    echo "<div class='divCourseInfoDescription'>" . $row['description'] . "</div></div>";
 
-        while($rowIsStudent = $resultCourseStudentsQuery->fetch_assoc()){
-?>
-    <img src="<?php echo 'uploads' . '/' .'studentsImages' . '/' . $rowIsStudent['img']; ?> "class='infoCardCourseStudentsImage' height="30" width="30"/>
+}
+echo "<div class='printCourseStudentsList'>";
+
+while ($rowIsStudent = $resultCourseStudentsQuery->fetch_assoc()) {
+    ?>
+    <img src="<?php echo 'uploads' . '/' . 'studentsImages' . '/' . $rowIsStudent['img']; ?> "class='infoCardCourseStudentsImage' height="30" width="30"/>
 <?php
-    echo "<div class='courseStudentsDiv'>".$rowIsStudent['fullname']."</div><br/>";
-    }
-    echo "</div></form></div>";
+echo "<div class='courseStudentsDiv'>" . $rowIsStudent['fullname'] . "</div><br/>";
+}
+echo "</div></form></div>";
 ?>

@@ -21,7 +21,7 @@ if (isset($_GET['save'])){
       $resultDeleteFromCourse = $db->deleteStudentFromCourseQuery($editId);
       $resultAssignedCoursesChangesQuery = $db->assignedCoursesChangesQuery($assignedCoursesChanges, $editId);
 
-      header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?studentInfoId=".$editId);
+      header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?action=studentInformation&studentInfoId=".$editId);
    exit();
 
 } else {

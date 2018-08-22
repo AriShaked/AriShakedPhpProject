@@ -86,12 +86,13 @@ if (isset($_GET['errorOwner'])) {
     <div class='AddNewAdminDiv' >
         <form  name='AddNewAdminForm' method='GET' action='addNewAdminToDB.php'>
             <button class='addNewAdminSaveButton' >Save</button>
+            <input type='hidden' name="page" value='administration'>
             Id <input type='number'      name='newAdminId' max='999999999'  value='' placeholder='please enter 9 digits number' required/><br/><br/>
-            Name <input type='text'    name='newAdminName' required/><br/><br/>
-            Phone <input type='tel'   name='newAdminPhone'  pattern='[0-9\-]+' placeholder='000-0000000' required/><br/><br/>
+            Name <input type='text'      name='newAdminName' required/><br/><br/>
+            Phone <input type='tel'     name='newAdminPhone'  pattern='[0-9\-]+' placeholder='000-0000000' required/><br/><br/>
             Email <input type='email'   name='newAdminEmail' placeholder='example@example.com' required/><br/><br/>
             Password <input type='text'name='newAdminPassword' required/><br/><br/>
-                    <input type='hidden' name="page" value='administration'>
+                    
 
                 <div class='selectRole'>
                 Role <select name="newAdminRole" required>

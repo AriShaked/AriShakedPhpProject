@@ -2,7 +2,7 @@
 <style>
 
     .titleadminPersonalInfo{
-            
+
         width:77.5%;
               border: 2px solid black;
               display: inline-block;
@@ -13,8 +13,8 @@
               top: 10.5%;
               left:22%;
               overflow-x: hidden;
-              
-            
+
+
             }
 
 .adminPersonalInfoDiv{
@@ -61,31 +61,31 @@
 
 </style>
 <?php
-    $infoAdminId = $_GET['adminId'];
-    $resultAdminsQuery = $db->adminQuery($infoAdminId);
-    while($row=$resultAdminsQuery->fetch_assoc()){
-?>
+$infoAdminId = $_GET['adminId'];
+$resultAdminsQuery = $db->adminQuery($infoAdminId);
+while ($row = $resultAdminsQuery->fetch_assoc()) {
+    ?>
 <div class="titleadminPersonalInfo"><h1>Administrator personal information</h1>
 <div class='adminPersonalInfoDiv'>
     <form method='GET' action='index.php'>
 
-        <input type='hidden' name="EditAdminPersonalInfoCard" value='EditAdminPersonalInfoCard'  /> 
-        <input type='hidden' name="administration" value='EditAdminPersonalInfoCard'  /> 
         <input type='hidden' name="page" value='administration'>
-        
-            
-            <br><div class='nameAndRole'><?php echo   $row['adminfullname']  ?>, <?php echo $row['role'] ?></div>
-            <br>Id: <?php echo   $infoAdminId        ?>
-            <br>Phone: <?php echo   $row['phone']  ?>
-            <br>Email: <?php echo   $row['email']  ?> <br/>
-            
-            <img src="<?php echo 'uploads' . '/' .'adminsImages' . '/' .  $row['adminimg']; ?>" height="200" width="200"/>
-<?php   
-        }
-?>  
-            <button class='editAdminButton' name='editAdminButton' value='editAdminButton' type="submit">Edit</button>
-            <input type='hidden' name="adminId"       value='<?php echo   $infoAdminId        ?>' readonly="readonly">
-        
+        <input type='hidden' name="action" value='EditAdminPersonalInfoCard'  />
+
+
+
+            <br><div class='nameAndRole'><?php echo $row['adminfullname'] ?>, <?php echo $row['role'] ?></div>
+            <br>Id: <?php echo $infoAdminId ?>
+            <br>Phone: <?php echo $row['phone'] ?>
+            <br>Email: <?php echo $row['email'] ?> <br/>
+
+            <img src="<?php echo 'uploads' . '/' . 'adminsImages' . '/' . $row['adminimg']; ?>" height="200" width="200"/>
+<?php
+}
+?>
+            <button class='editAdminButton'  type="submit">Edit</button>
+            <input type='hidden' name="adminId"       value='<?php echo $infoAdminId ?>' readonly="readonly">
+
     </form>
 </div>
 </div>

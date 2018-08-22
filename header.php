@@ -89,14 +89,14 @@
 <?php
 
 if ($role == 'manager' || $role == 'owner') {
-    echo "<div class='administration'><a href='index.php?administration&page=administration'>Administration</a></div>";
+    echo "<div class='administration'><a href='index.php?page=administration'>Administration</a></div>";
     echo "<div class='school'><a href='index.php?school'>School</a></div>";
 
 } elseif ($role == 'sales') {
 
     echo "<div class='school' name='school' value='school'>School</div>";
 } else {
-    header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password(role is missing in DB)");
+    header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password");
     die();
 }
 

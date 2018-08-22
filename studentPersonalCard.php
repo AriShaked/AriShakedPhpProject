@@ -89,7 +89,7 @@
        echo      "</div><br/>courses:</div>";
         
          echo "<form method='GET' action='index.php' > 
-         <button class='editStudentButton' name='editStudentButtoninfoClicked' type='submit'>edit</button>
+         <button class='editStudentButton' name='action' value='editStudentDetails' type='submit'>edit</button>
          <input type='hidden' name='studentId' value='$studentId'>";
          echo "<div class='printStudentCourseList'>";
 
@@ -97,8 +97,7 @@
 ?>
             <img src="<?php echo 'uploads' . '/' .'coursesImages' . '/' . $rowIsCourse['courseimg']; ?> "class='infoCardStudentCoursesImage' height="30" width="30"/>
 <?php
-        echo $rowIsCourse['name']."<br/>".
-            "<input type='hidden' name='holdsStudentcourses' value='".$rowIsCourse['name']."'>";
+        echo $rowIsCourse['name']."<br/>";
          }  
          echo "</div><br/></form>";
 ?>
