@@ -2,11 +2,12 @@
 
 
     class UsersDB {
-        private $conn;
-        const HOST = 'sql7.freemysqlhosting.net';
-        const USERNAME = 'sql7266845';
-        const PASSWORD = 'XtHVERbDll';
+        const HOST = 'localhost';
+        const USERNAME = 'root';
+        const PASSWORD = '';
         const DB = 'project';
+        
+        
 
             function __construct() {
                 $this->conn = new mysqli(self::HOST, self::USERNAME, self::PASSWORD, self::DB);
