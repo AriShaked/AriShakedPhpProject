@@ -35,7 +35,7 @@ if (isset($_SESSION['loggedInUser'])) {
 
     if ($verify == false) {
 
-        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password");
+        header("Location: https://aris-php-project.herokuapp.com/login.php?error=please insert correct username and password");
         die();
     }
 }

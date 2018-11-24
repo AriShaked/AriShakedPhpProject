@@ -8,5 +8,5 @@ $newImg = $_GET['newCourseImg'];
 $db = new UsersDB();
 $resultNewCourse = $db->insertNewCourseQuery($newCourseName, $newDescription, $newImg);
 
-header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?action=courseInformation&newCourseName=" . $newCourseName);
+header("Location: https://aris-php-project.herokuapp.com/index.php?action=courseInformation&newCourseName=" . $newCourseName);
 exit();

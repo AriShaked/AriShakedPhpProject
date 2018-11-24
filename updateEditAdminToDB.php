@@ -23,7 +23,7 @@ require('db.php');
         $saveEditAdminName,$saveEditAdminRole,$saveEditAdminPhone
         ,$saveEditAdminEmail, $saveEditAdminImg,$saveEditAdminId);
 
-         header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?page=administration&action=adminPersonalInfoCard&adminId=".$saveEditAdminId);
+         header("Location: https://aris-php-project.herokuapp.com/index.php?page=administration&action=adminPersonalInfoCard&adminId=".$saveEditAdminId);
    exit();
 
 
@@ -34,7 +34,7 @@ require('db.php');
             $resultAdminDelete = $db->deleteAdminQuery( $saveEditAdminId);
         }
  
- header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?page=administration");
+ header("Location: https://aris-php-project.herokuapp.com/index.php?page=administration");
    exit();
 
 }

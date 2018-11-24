@@ -16,7 +16,7 @@ if ($newAdminRole == 'owner') {
     $resultCheckForOwnerUser = $db->checkForOwnerUser();
 
     if ($resultCheckForOwnerUser !== "") {
-        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?page=administration&action=addNewAdminForm&errorOwner=owner%20already%20exist");
+        header("Location: https://aris-php-project.herokuapp.com/index.php?page=administration&action=addNewAdminForm&errorOwner=owner%20already%20exist");
         exit();
     }
 }
@@ -25,5 +25,5 @@ $db = new UsersDB();
 $resultInsertNewAdminQuery = $db->insertNewAdminQuery($newAdminId
     , $newAdminName, $newAdminRole, $newAdminPhone, $newAdminEmail, $hashed_password, $newAdminImg);
 
-header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?page=administration&action=adminPersonalInfoCard&adminId=" . $newAdminId);
+header("Location: https://aris-php-project.herokuapp.com/index.php?page=administration&action=adminPersonalInfoCard&adminId=" . $newAdminId);
 exit();

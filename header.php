@@ -96,7 +96,7 @@ if ($role == 'manager' || $role == 'owner') {
 
     echo "<div class='school' name='school' value='school'>School</div>";
 } else {
-    header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password");
+    header("Location: https://aris-php-project.herokuapp.com/login.php?error=please insert correct username and password");
     die();
 }
 

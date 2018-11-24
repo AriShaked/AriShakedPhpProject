@@ -16,7 +16,7 @@ $resAssignStudentToCourse = $db->assignStudentToCourseQuery($newId,$value);
 
     }
 
-header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?action=studentInformation&studentInfoId=".$newId);
+header("Location: https://aris-php-project.herokuapp.com/index.php?action=studentInformation&studentInfoId=".$newId);
 exit();
 
 ?>

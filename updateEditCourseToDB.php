@@ -15,7 +15,7 @@ require_once('db.php');
         $db = new UsersDB();
         $resultEditCourseQuery = $db->updateEditCourseQuery($saveEditCourseName ,$saveEditCourseDescription, $saveEditCourseImg, $saveCourseId );
     
-        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php?action=courseInformation&courseInfoId=".$saveCourseId);
+        header("Location: https://aris-php-project.herokuapp.com/index.php?action=courseInformation&courseInfoId=".$saveCourseId);
         exit();  
     
     }else{ 
@@ -25,7 +25,7 @@ require_once('db.php');
             $resultCourseDelete = $db->deleteCourseQuery( $saveCourseId);
         }
     
-    header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/index.php");
+    header("Location: https://aris-php-project.herokuapp.com/index.php");
     exit();
 }
 ?>
