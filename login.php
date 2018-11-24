@@ -24,13 +24,21 @@
         height:10.1%;
         }
         .logo{
-            position:fixed;
+         position:fixed;
         top:0%;
         left:1%;
         width:20%;
         height:10%;
-
         }
+        form {
+        width: 250px;
+         clear: both;
+         }
+
+         form input {
+          width: 100%;
+          clear: both;
+          }
         
     </style>
 </head>
