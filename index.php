@@ -16,7 +16,7 @@ if (isset($_SESSION['loggedInUser'])) {
 
     if (empty($_POST['username']) || empty($_POST['password'])) {
 
-        header("Location: https://aris-php-project.herokuapp.com/login.php?error=please insert correct username and password");
+        header("Location: https://aris-php-project.herokuapp.com/login.php");
         die();
     }
     $user = $_POST['username'];
