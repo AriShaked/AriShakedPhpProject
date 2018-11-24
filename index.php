@@ -16,7 +16,7 @@ if (isset($_SESSION['loggedInUser'])) {
 
     if (empty($_POST['username']) || empty($_POST['password'])) {
 
-        header("Location: http://localhost/arisphp/tests-phpProjectAriShaked_Copy/mvc-courselist/login.php?error=please insert correct username and password");
+        header("Location: https://github.com/AriShaked/AriShakedPhpProject/blob/master/login.php?error=please insert correct username and password");
         die();
     }
     $user = $_POST['username'];
