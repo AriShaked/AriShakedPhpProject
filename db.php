@@ -3,9 +3,9 @@
 
     class UsersDB {
         private $conn;
-        const HOST = 'localhost';
-        const USERNAME = 'root';
-        const PASSWORD = '';
+        const HOST = 'sql7.freemysqlhosting.net';
+        const USERNAME = 'sql7266845';
+        const PASSWORD = 'XtHVERbDll';
         const DB = 'project';
 
             function __construct() {
